@@ -1,4 +1,4 @@
-const router = require('express').Router
+const router = require('express').Router();
 const Owner = require('../models/Owner');
 
 router.get('/', async (req, res) => {
@@ -6,7 +6,7 @@ router.get('/', async (req, res) => {
         res.json(err);
     });
     const owners = ownerData.map((owner) => owner.get({ plain: true }));
-    res.render('all', { owners });
+    res.render('homepage', { owners });
 });
 
 
@@ -22,6 +22,6 @@ router.get('/owner/:id', async (req, res) => {
       } catch (err) {
           res.status(500).json(err);
       };     
-  });
+});
   
-  module.exports = router;
+module.exports = router;
