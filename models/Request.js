@@ -11,21 +11,22 @@ Request.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    owner_name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
-    description: {
+    dog_name: {
       type: DataTypes.STRING,
+      allowNull: false
+    },
+    dog_breed: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
-    },
-    needed_funding: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
     },
     owner_id: {
       type: DataTypes.INTEGER,
