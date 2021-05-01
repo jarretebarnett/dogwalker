@@ -11,12 +11,17 @@ Request.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    owner_name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
-    description: {
+    dog_name: {
       type: DataTypes.STRING,
+      allowNull: false
+    },
+    dog_breed: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
     date_created: {
       type: DataTypes.DATE,

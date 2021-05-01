@@ -5,13 +5,13 @@ router.post('/', async (req, res) => {
   try {
     const ownerData = await Owner.create(req.body);
 
-    /*req.session.save(() => {
+    req.session.save(() => {
       req.session.owner_id = ownerData.id;
-      req.session.logged_in = true;*/
+      req.session.logged_in = true;
 
       res.status(200).json(ownerData);
-    }
-   catch (err) {
+    });
+  } catch (err) {
     res.status(400).json(err);
   }
 });
