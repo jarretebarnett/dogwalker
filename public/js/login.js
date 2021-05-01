@@ -12,8 +12,9 @@ const loginForm = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/profile');
+        document.location.replace('/schedule');
       } else {
+        console.log('where are u')
         alert(response.statusText);
       }
     }
@@ -34,7 +35,7 @@ const signupForm = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/profile');
+        document.location.replace('/schedule');
       } else {
         alert(response.statusText);
       }
