@@ -44,6 +44,7 @@ router.post('/login', async (req, res) => {
     });
 
   } catch (err) {
+    console.log('error in log in')
     res.status(400).json(err);
   }
 });

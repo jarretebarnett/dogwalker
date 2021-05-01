@@ -1,14 +1,50 @@
-let x = document.getElementById("login");
-        let y = document.getElementById("signUp");
-        let z = document.getElementById("btn");
-        
-        function signUp() {
-            x.style.left = "-400px";
-            y.style.left = "50px";
-            z.style.left = "110px"
-        }
-        function login() {
-            x.style.left = "50px";
-            y.style.left = "450px";
-            z.style.left = "0px"
-        }
+const loginForm = async (event) => {
+    event.preventDefault();
+  
+    const email = document.querySelector('#email-login').value.trim();
+    const password = document.querySelector('#password-login').value.trim();
+  
+    if (email && password) {
+      const response = await fetch('/api/owners/login', {
+        method: 'POST',
+        body: JSON.stringify({ email, password }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+  
+      if (response.ok) {
+        document.location.replace('/schedule');
+      } else {
+        //console.log('where are u')
+        alert(response.statusText);
+      }
+    }
+};
+  
+const signupForm = async (event) => {
+    event.preventDefault();
+  
+    const name = document.querySelector('#name-signup').value.trim();
+    const email = document.querySelector('#email-signup').value.trim();
+    const password = document.querySelector('#password-signup').value.trim();
+  
+    if (name && email && password) {
+      const response = await fetch('/api/owners', {
+        method: 'POST',
+        body: JSON.stringify({ name, email, password }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+  
+      if (response.ok) {
+        document.location.replace('/schedule');
+      } else {
+        alert(response.statusText);
+      }
+    }
+};
+  
+document.querySelector('.login-form')
+document.addEventListener('click', loginForm);
+  
+document.querySelector('.signup-form')
+document.addEventListener('click', signupForm);
+  
