@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const ownerData = await Owner.findOne({ where: { email: req.body.email } });
-
+    console.log(ownerData);
     if (!ownerData) {
       res
         .status(400)
@@ -51,7 +51,9 @@ router.post('/login', async (req, res) => {
 
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
+    console.log('hello you');
     req.session.destroy(() => {
+      console.log('looking out');
       res.status(204).end();
     });
   } else {

@@ -7,17 +7,31 @@ router.get('/', async (req, res) => {
         res.json(err);
     });
     const owners = ownerData.map((owner) => owner.get({ plain: true }));
-    res.render('homepage', { owners });
+    res.render('homepage', { owners, 
+      logged_in: req.session.logged_in
+    });
 });
 
-
 router.get('/owner/:id', async (req, res) => {
+  try {
+    const ownerData = await Owner.findByPk(req.params.id, {
+      include: [
+        {
+          model: Owner,
+          required: true
+        },
+      ]
+    });
+
+
+/*router.get('/owner/:id', async (req, res) => {
     try{ 
         const ownerData = await Owner.findByPk(req.params.id);
+      
         if(!ownerData) {
             res.status(404).json({message: 'No owner with this id!'});
             return;
-        }
+        }*/
         const owner = ownerData.get({ plain: true });
         res.render('owner', owner);
       } catch (err) {
@@ -31,7 +45,7 @@ router.get('/schedule', withAuth, async (req, res) => {
       // Find the logged in user based on the session ID
       const ownerData = await Owner.findByPk(req.session.owner_id, {
         attributes: { exclude: ['password'] },
-        include: [{ model: Post }],
+       // include: [{ model: ??? }],
       });
   
       const owner = ownerData.get({ plain: true });
