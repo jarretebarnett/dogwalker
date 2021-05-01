@@ -1,0 +1,34 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    height: 100%;
+    width: 100%;
+    background-image: url(../assets/image.png);
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+}
+.hero {
+    width: 500px;
+    height: 750px;
+    position: relative;
+    margin: 6% auto;
+    padding: 5px;
+    background: transparent;
+    box-shadow: 0 0 20px 9px rgb(174, 205, 214);
+    overflow: hidden;
+}
+.btn{
+    top: 0;
+    left: 0;
+    width: 110px;
+    height:50%;
+    background-color: rgb(16, 171, 214) !important;
+    border-radius: 30px;
+}
+.form {
+    top: 0;
+    width: 250px;
+}
