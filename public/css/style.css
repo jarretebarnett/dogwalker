@@ -1,18 +1,18 @@
-*{
-    margin: 0;
+* {
     padding: 0;
+    margin: 0;
 }
-.hero{
+body {
     height: 100%;
     width: 100%;
-    background-image: url("/assets/image.png");
+    background-image: url(../assets/image.png);
     background-position: center;
     background-size: cover;
     position: absolute;
 }
-.form-box{
-    width: 380px;
-    height: 480px;
+.hero {
+    width: 500px;
+    height: 750px;
     position: relative;
     margin: 6% auto;
     padding: 5px;
@@ -20,64 +20,15 @@
     box-shadow: 0 0 20px 9px rgb(174, 205, 214);
     overflow: hidden;
 }
-.button-box{
-    width: 220px;
-    margin: 35px auto;
-    position: relative;
-    box-shadow: 0 0 20px 9px rgb(174, 205, 214);
-    border-radius: 30px;
-}
-.toggle-btn{
-    padding: 10px 30px;
-    cursor: pointer;
-    background: transparent;
-    border: 0;
-    outline: none;
-    position: relative;
-}
-#btn{
+.btn{
     top: 0;
     left: 0;
-    position: absolute;
     width: 110px;
-    height:100%;
-    background-color: rgb(16, 171, 214);
-    border-radius: 30px;
-    transition: .5s;
-}
-.input-group{
-    top: 180;
-    position: absolute;
-    width: 280px;
-    transition: .5s;
-}
-.input-field{
-    width: 100%;
-    margin: 5px 0;
-    padding: 10px 0;
-    border-left: 0;
-    border-top: 0;
-    border-right: 0;
-    border-bottom: 1px solid #999;
-    outline: none;
-    background: transparent;
-}
-.submit-btn{
-    width: 85%;
-    margin: 30px;
-    padding: 11px 30px;
-    cursor: pointer;
-    display: block;
-    background: rgb(16, 171, 214);
-    border: 0;
-    outline: none;
+    height:50%;
+    background-color: rgb(16, 171, 214) !important;
     border-radius: 30px;
 }
-#login{
-    left: 50px;
+.form {
+    top: 0;
+    width: 250px;
 }
-#signUp{
-    left:450px
-}
-
-
