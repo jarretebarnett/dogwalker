@@ -19,3 +19,11 @@ body {
     border-radius: 30px;
     color: white;
 }
+a {
+    color: black;
+}
+#bottom-right {
+    right: 0;
+    bottom: 0;
+    position: absolute;
+}
