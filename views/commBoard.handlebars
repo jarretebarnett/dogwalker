@@ -1,5 +1,5 @@
 <div class="text-center">
-  <p>Written by {{user.name}} on {{format_date date_created}}</p>
+  <p>Written by {{owner.name}} on {{format_date date_created}}</p>
   <p>{{content}}</p>
 
 
@@ -11,7 +11,7 @@
     
       {{#each comments as |comment|}}
         <h4>{{this.content}}</h4>
-        <p>posted on {{format_date this.date_created}} by {{this.user.name}}</p>
+        <p>posted on {{format_date this.date_created}} by {{this.owner.name}}</p>
       {{/each}}
     
   </div>
@@ -39,4 +39,4 @@
  
 </div>
 
-<script src="/js/commentpost.js"></script>
+<script src="./js/commentpost.js"></script>
