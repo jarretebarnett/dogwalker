@@ -31,6 +31,7 @@ Comment.init(
         key: 'id',
         }
     },
+  },
   {
     sequelize,
     timestamps: false,
@@ -38,6 +39,7 @@ Comment.init(
     underscored: true,
     modelName: 'comment',
   }
+  
 );
 
 module.exports = Comment;
