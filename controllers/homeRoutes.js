@@ -25,21 +25,22 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
-router.get('/commBoard', async (req, res) => {
-  try{
-    //const commentArray = await 
+router.get('/commBoard', withAuth, async (req, res) => {
+  try {
+    // Find the logged in owner based on the session ID
+    const ownerData = await Owner.findByPk(req.session.owner_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Comment }],
+    });
+
+    const owner = ownerData.get({ plain: true });
 
     res.render('commBoard', {
-      owner: {
-        name:"sample name"
-      },
-      date_created: new Date(),
-      content: 'Thank you',
-      //comments: commentArray
-    })
-  }
-  catch (err) {
-    res.status(500).json(err)
+      ...owner,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 
