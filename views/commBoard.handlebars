@@ -1,32 +1,16 @@
-<div class="text-center commBoard" >
-  <p>Written by {{owner.name}} on {{format_date date_created}}</p>
-  <p>{{content}}</p>
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h3>Please Leave Feedback</h3>
 
-
-
-
-
-  
-  <hr>
-
-
-
-
-  <div class="row mt-4">
-  <div class="col-md-12">
-    <h4>Leave Feedback</h4>
-
-    <form class="form new-comment-form" value = "3">
+    <form class="form new-project-form">
       <div class="form-group">
-        <label for="post-content">Comment</label>
-        <textarea class="form-input" id="post-content" name="post-content"></textarea>
+        <label for="content-desc">Comment</label>
+        <textarea class="form-input" id="post_content" name="content-desc"></textarea>
       </div>
-
-        <button id='post_id' type="submit" class="btn btn-primary" value= '{{id}}'>Post</button>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Post</button>
       </div>
     </form>
   </div>
- 
-</div>
 
-<script src="./js/commentpost.js"></script>
+  

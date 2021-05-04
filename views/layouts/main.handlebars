@@ -14,7 +14,12 @@
     <header class="display-flex justify-space-between align-center p-2">
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-         <h5><a href="/commBoard">Leave a review</a></h5>
+        <div class="row">
+          <div class="col-auto">
+            <h2>Welcome {{name}},</h2>
+            <h5>Please choose your dog's walk date and time:</h5>
+          </div>
+       </div>
         <h5><button class="no-button" id="logout">Logout</button></h5>
         {{else}}
         <a href="/login">Login</a>

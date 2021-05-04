@@ -15,7 +15,7 @@ const newFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/schedule');
+            document.location.replace('/commBoard');
           } else {
             alert('No comment created');
           }
