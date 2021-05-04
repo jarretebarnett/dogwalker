@@ -4,11 +4,7 @@
     margin: 0;
 }
 body {
-    height: 100%;
-    width: 100%;
-    background-image: url(../assets/calender.jpeg);
-    background-position: center;
-    background-size: cover;
+    background: rgb(246, 247, 248);
     position: absolute;
     font-family: 'Noto Sans JP', sans-serif;
 }
@@ -17,9 +13,9 @@ body {
     left: 0;
     width: 110px;
     height:35px;
-    background-color: rgb(197, 84, 49) !important;
-    border-radius: 30px;
-    color: black;
+    background-color: rgb(252, 135, 120) !important;
+    border: rgb(246, 247, 248);
+    color: white;
 }
 a {
     color: black;
