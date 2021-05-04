@@ -4,7 +4,7 @@ const commentRoutes = require('./commentRoutes');
 const requestRoutes = require('./requestRoutes');
 
 router.use('/owners', ownerRoutes);
-router.use('/comments', commentRoutes);
+router.use('/commBoard', commentRoutes);
 router.use('/requests', requestRoutes);
 
 module.exports = router;
