@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {Owner, Comment} = require('../models');
+const {Owner, Comment, Message} = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -61,7 +61,7 @@ router.get('/commentpost/:id', async (req, res) => {
 });
 
 // Use withAuth middleware to prevent access to route
-router.get('/schedule', withAuth, async (req, res) => {
+router.get('/calendar', withAuth, async (req, res) => {
   try {
     // Find the logged in owner based on the session ID
     const ownerData = await Owner.findByPk(req.session.owner_id, {
@@ -71,9 +71,62 @@ router.get('/schedule', withAuth, async (req, res) => {
 
     const owner = ownerData.get({ plain: true });
 
-    res.render('schedule', {
+    res.render('calendar', {
       ...owner,
       logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/messages', async (req, res) => {
+  try {
+    // Get all projects and JOIN with user data
+    const messageData = await Message.findAll({
+      include: [
+        {
+          model: Owner,
+          // attributes: ['ownername'],
+        },
+      ],
+    });
+
+    console.log(messageData);
+
+    // Serialize data so the template can read it
+    const messages = messageData.map((message) => message.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.render('dm', { 
+      messages, 
+      logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/rooms', async (req, res) => {
+  try {
+    // Get all projects and JOIN with user data
+    const roomData = await Owner.findAll({
+      include: [
+        {
+          model: Message
+        },
+      ],
+    });
+
+    console.log(roomData);
+
+    // Serialize data so the template can read it
+    const rooms = roomData.map((room) => room.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.render('dmii', { 
+      rooms, 
+      logged_in: req.session.logged_in 
     });
   } catch (err) {
     res.status(500).json(err);
@@ -83,7 +136,7 @@ router.get('/schedule', withAuth, async (req, res) => {
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/schedule');
+    res.redirect('/calendar');
     return;
   }
 
