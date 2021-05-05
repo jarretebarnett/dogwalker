@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Request extends Model {}
+class Message extends Model {}
 
-Request.init(
+Message.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,15 +11,11 @@ Request.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    owner_name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    dog_name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    dog_breed: {
+    // username: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false
+    // },
+    message: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -41,8 +37,8 @@ Request.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'request',
+    modelName: 'message',
   }
 );
 
-module.exports = Request;
+module.exports = Message;

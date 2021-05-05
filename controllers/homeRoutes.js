@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {Owner, Comment} = require('../models');
+const {Owner, Comment, Message} = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -92,6 +92,59 @@ router.get('/calendar', withAuth, async (req, res) => {
     res.render('calendar', {
       ...owner,
       logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/messages', async (req, res) => {
+  try {
+    // Get all projects and JOIN with user data
+    const messageData = await Message.findAll({
+      include: [
+        {
+          model: Owner,
+          // attributes: ['ownername'],
+        },
+      ],
+    });
+
+    console.log(messageData);
+
+    // Serialize data so the template can read it
+    const messages = messageData.map((message) => message.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.render('dm', { 
+      messages, 
+      logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/rooms', async (req, res) => {
+  try {
+    // Get all projects and JOIN with user data
+    const roomData = await Owner.findAll({
+      include: [
+        {
+          model: Message
+        },
+      ],
+    });
+
+    console.log(roomData);
+
+    // Serialize data so the template can read it
+    const rooms = roomData.map((room) => room.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.render('dmii', { 
+      rooms, 
+      logged_in: req.session.logged_in 
     });
   } catch (err) {
     res.status(500).json(err);
