@@ -11,6 +11,10 @@ Comment.init(
         primaryKey: true,
         autoIncrement: true,
     },
+    name: {
+      type:DataTypes.STRING,
+      allowNull: false,
+    },
     content: {
         type: DataTypes.STRING,
         allowNull: true
@@ -27,13 +31,6 @@ Comment.init(
         key: 'id',
         }
     },
-    post_id: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'owner',
-            key: 'id'
-        }
-    }
   },
   {
     sequelize,
@@ -42,6 +39,7 @@ Comment.init(
     underscored: true,
     modelName: 'comment',
   }
+  
 );
 
 module.exports = Comment;

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 * {
     padding: 0;
     margin: 0;
@@ -10,6 +11,7 @@ body {
     background-position: center;
     background-size: cover;
     position: absolute;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 .hero {
     width: 500px;
@@ -19,7 +21,6 @@ body {
     padding: 5px;
     background: transparent;
     box-shadow: 0 0 20px 9px rgb(174, 205, 214);
-    overflow: hidden;
 }
 .btn {
     top: 0;
