@@ -54,7 +54,7 @@ io.on('connection', socket => {
 
     socket.join(owner.room);
 
-    socket.emit('message', formatMessage(doggieBot, 'Welcome to chat!'));
+    socket.emit('message', formatMessage(doggieBot, 'Welcome to Doggie Chat!'));
 
     socket.broadcast.to(owner.room).emit('message', formatMessage(doggieBot, `${owner.name} has entered the chat!`));
 

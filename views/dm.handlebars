@@ -1,3 +1,7 @@
+<link rel="stylesheet" href="css/style2.css">
+<link href="css/calendar.css" rel="stylesheet">
+
+{{#if logged_in}}
 <div class="join-container">
 			<header class="join-header">
 				<h1><i class="fas fa-dog"></i> Doggie Chat</h1>
@@ -21,7 +25,7 @@
 							<option value="Walker Inquiry">Walker Inquiry</option>
 						</select>
 					</div>
-					<button type="submit" class="btn">Join Chat</button>
+					<button type="submit" class="btnii">Join Chat</button>
 				</form>
 			</main>
 		</div>
@@ -29,3 +33,4 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.1/qs.min.js"></script>
 <script src="https://cdn.socket.io/4.0.1/socket.io.min.js" integrity="sha384-LzhRnpGmQP+lOvWruF/lgkcqD+WDVt9fU3H4BWmwP5u5LTmkUGafMcpZKNObVMLU" crossorigin="anonymous"></script>
   <script src="./js/main.js"></script>
+{{/if}}
