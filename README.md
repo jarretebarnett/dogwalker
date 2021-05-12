@@ -8,6 +8,7 @@
 * Contributions
 * Licensing
 * Tests
+* Demo
 * Questions
 
 ## Description
@@ -33,6 +34,18 @@ Paramaters to contributors include coordinated approval when pushing for a local
 ## Tests
 
 Users can test back end code in Terminal by running 'npm start' in the command line.
+
+## Demo
+
+Deployed Heroku application: https://dogwalkerapp.herokuapp.com/
+
+![homepage](assetsii/homepage.png)
+
+![calendar](assetsii/calendar.png)
+
+![doggiechati](assetsii/doggiechati.png)
+
+![doggiechatii](assetsii/doggiechatii.png)
 
 ## Questions
 
